@@ -1,0 +1,54 @@
+#------------------------------------------------------------------------------
+# 宏定义 
+#------------------------------------------------------------------------------
+# -M generator map file
+
+CC        = bcc                                                   # Borland C++
+CC_OPTION = -c -ms -3 -O2 -g5 -j1 
+
+AS				= TASM
+AFLAGS		= /os /mx
+
+OUT_FILE  = foxdisk.exe
+
+#-----------------------------------------------------------------------------
+#       源代码列表
+#-----------------------------------------------------------------------------
+OBJS = Setup.obj iSetup.obj\
+       Loader.obj Foxdisk.obj BootOS.obj\
+       BootMenu.obj MainMenu.obj INT1ch.obj\
+       Fdisk.obj Partwork.obj SetPara.obj\
+       Painter.obj Font.obj  Graphic.obj\
+       Vesa.obj  DISKDRV.obj DISKAPP.obj\ 
+			 iMath.obj iMem.obj iTimeInt.obj\
+			 EndCode.obj\
+			 Global.obj
+# int1c.obj
+
+#-----------------------------------------------------------------------------
+#      可执行文件生成
+#-----------------------------------------------------------------------------
+foxdisk.exe:  CLEAN_OUT  $(OBJS)
+      $(CC)   -e$(OUT_FILE) -M *.obj
+   
+#-----------------------------------------------------------------------------
+#                           Generator Object file
+#-----------------------------------------------------------------------------
+.c.obj:
+        $(CC)  $(CC_OPTION)  $<
+
+.asm.obj:
+        $(AS) 	$(AFLAGS) $<
+
+
+ 
+#-----------------------------------------------------------------------------
+#                            Clean remainder file
+#-----------------------------------------------------------------------------
+CLEAN_OUT:
+        del $(OUT_FILE).exe
+
+CLEAN:
+        del *.obj
+#del $(OUT_FILE)
+
