@@ -7,7 +7,7 @@ BootLoader Tool for x86(based on Legacy BIOS, like grub)
 * 张佩觉得很有意思，怂恿我把它写成系列博客；
 * 因此我把相关的代码全部开源出来了；
 * 先声明：Foxdisk3我自己只用了3个多月，后面也发现了一些小BUG，我没有精力再去修改了，何况UEFI当时也出来了，我更没有动力去维护；
-* 除去硬盘管理部分，参考了Spfdisk外，其余代码都是我自己写的。有需要哪去用，估计嵌入式开发中可以参考一下；
+* 除去硬盘管理部分，参考了Spfdisk外，其余代码都是我自己写的。有需要拿去用，估计嵌入式开发中可以参考一下；
 * 博客地址：
 * http://yiiyee.cn/blog/author/luobing/
 * csdn:luobing4365
